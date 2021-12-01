@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3a5b7045-9ae8-4b78-a104-f93e13940724" name="dev02" url="http://dev02.defo.ru/udemy">
+        <fileTransfer host="82.146.50.125" port="21" rootFolder="/dev02.defo.ru/udemy">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
