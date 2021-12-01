@@ -338,7 +338,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         }
 
-        fetch('db.json')  // обращаемся к нашей базе данных
+        fetch('http://localhost:3000/menu')  // обращаемся к нашей базе данных
             .then(data => data.json())   // превращаем ответ от сервера (json-файл) в обычный js-объект
             .then(res => console.log(res));
 
