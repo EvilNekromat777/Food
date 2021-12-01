@@ -10,3 +10,5 @@
 # production
 /build
 
+# системные файлы самого phpStorma, они не нужны для комитов
+/.idea
