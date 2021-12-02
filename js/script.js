@@ -232,9 +232,18 @@ window.addEventListener('DOMContentLoaded', () => {
         };
 
         // Первый способ создания карточек, с помощью экземпляра класса new MenuCard
-        getResourse('http://localhost:3000/menu')
+        // getResourse('http://localhost:3000/menu')
+        //     .then(data => {
+        //      data.forEach(({img, altimg, title, descr, price}) => {
+        //        new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+        //      });
+        //     });
+
+        // Будем использовать библиотеку AXIOS
+        // Берем данные из документации: https://github.com/axios/axios
+        axios.get('http://localhost:3000/menu')
             .then(data => {
-                data.forEach(({img, altimg, title, descr, price}) => {
+                data.data.forEach(({img, altimg, title, descr, price}) => {
                     new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
                 });
             });
