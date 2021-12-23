@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3ba029cb-cc4e-4d08-9703-f0e9f11000af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +54,8 @@
       <workItem from="1637223682144" duration="28971000" />
       <workItem from="1639050024017" duration="7973000" />
       <workItem from="1639982521904" duration="55000" />
-      <workItem from="1640153395492" duration="1209000" />
+      <workItem from="1640153395492" duration="2122000" />
+      <workItem from="1640246986123" duration="932000" />
     </task>
     <servers />
   </component>
@@ -71,10 +71,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2714" y="444" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1637224264040" />
-    <state x="2576" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1639982548684">
+    <state x="2576" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1640247318719">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2576" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1639982548684" />
+    <state x="2576" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1640247318719" />
     <state x="2719" y="251" key="ftp.server.browser" timestamp="1637223914877">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
