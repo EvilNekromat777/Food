@@ -541,4 +541,111 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+        // Calculator
+
+        const result = document.querySelector('.calculating__result span');
+
+        let sex, height, weight, age, ratio;
+
+        if(localStorage.getItem('sex')) {       // если в локал сторедже есть эта переменная
+            sex = localStorage.getItem('sex');  // тогда берем ее оттуда
+        } else{
+            sex = 'female';                          // если нет, устанавливаем дефолтное значение female
+            localStorage.setItem('sex', 'female');   // и записываем это дефолтное значение в локал сторедж
+        }
+
+        if(localStorage.getItem('ratio')) {
+            ratio = localStorage.getItem('ratio');
+        } else{
+            ratio = 1.375;
+            localStorage.setItem('ratio', 1.375);
+        }
+
+        function initLocalSettings(selector, activeClass) {
+            const elements = document.querySelectorAll(selector);
+
+            elements.forEach(elem => {
+                elem.classList.remove(activeClass);
+                if (elem.getAttribute('id') === localStorage.getItem('sex')) {
+                    elem.classList.add(activeClass);
+                }
+                if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
+                    elem.classList.add(activeClass);
+                }
+            });
+        }
+        initLocalSettings('#gender div', 'calculating__choose-item_active');
+        initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+
+
+        function calcTotal() {
+            if (!sex || !height || !weight || !age || !ratio) {  // если хоть одно поле пустое (возвращает false)
+                result.textContent = '____';  // тогда в поле результата выводим пробел, то есть результат не считаем
+                return;  // прерываем функцию
+            }
+
+            if (sex === 'female'){
+                result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);  // берем формулу со стороннего сайта
+            }else {
+                result.textContent = Math.round ((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);  // берем формулу со стороннего сайта
+            }
+        }
+        calcTotal();
+
+        function getStaticInformation(selector, activeClass) {
+            const elements = document.querySelectorAll(selector);
+
+            elements.forEach(elem => {
+                elem.addEventListener('click', (e) => {
+                    if (e.target.getAttribute('data-ratio')) {  // если у блока есть атрибут data-ratio - берем его
+                        ratio = +e.target.getAttribute('data-ratio');
+                        localStorage.setItem('ratio', +e.target.getAttribute('data-ratio'));
+                    } else {   // если такого атрибута нет, берем id
+                        sex = e.target.getAttribute('id');
+                        localStorage.setItem('sex', e.target.getAttribute('id'));
+                    }
+
+                    elements.forEach(elem => {   // перебираем все элементы
+                        elem.classList.remove(activeClass);  // у всех убираем класс активности
+                    });
+                    e.target.classList.add(activeClass);  // добавляем этот класс только тому элементу, по которому был клик
+                    calcTotal();
+                });
+            });
+
+
+        }
+        getStaticInformation('#gender div', 'calculating__choose-item_active');
+        getStaticInformation('.calculating__choose_big div', 'calculating__choose-item_active');
+
+        function getDynamicInformation(selector) {
+            const input = document.querySelector(selector);
+
+            input.addEventListener('input', () => {
+
+                if(input.value.match(/\D/g)) {  // если в инпут ввели НЕ число (регулярное выражение)
+                    input.style.border = '1px solid red';
+                } else {
+                    input.style.border = 'none';
+                }
+
+                switch(input.getAttribute('id')) {  // используем конструкцию switch, проверяем инпут по айдишнику
+                    case 'height':              // если есть id="height"
+                        height = +input.value;  // записываем значение этого инпута в переменную height
+                        break;
+                    case 'weight':
+                        weight = +input.value;
+                        break;
+                    case 'age':
+                        age = +input.value;
+                        break;
+                }
+                calcTotal();
+            });
+        }
+        getDynamicInformation('#height');
+        getDynamicInformation('#weight');
+        getDynamicInformation('#age');
+
 });
